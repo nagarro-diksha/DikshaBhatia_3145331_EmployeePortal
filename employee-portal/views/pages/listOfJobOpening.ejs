@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <%- include('../partials/head'); %>
+</head>
+<style>
+    .card {
+        margin: 30px;
+    }
+
+    #newJobOpeningBtn {
+        margin-top: 20px;
+        margin-left: 80%;
+        margin-bottom: 20px;
+        background-color: lightcoral;
+        border: lightcoral;
+    }
+
+    h2 {
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+</style>
+
+<script>
+
+</script>
+
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <h2>
+            List of Job Openings
+        </h2>
+        <table class="table table-hover">
+            <thead>
+
+                <tr>
+                    <th>S.No. </th>
+                    <th>Project Name </th>
+                    <th>Client Name</th>
+                    <th>Job Description</th>
+                    <th>Technology Stack </th>
+                    <th>Created By</th>
+                    <th>Status</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% jobOpenings.forEach(function(data, index) {%>
+
+                <tr>
+                    <td><%= index + 1 %>.</td>
+                    <td><%= data.projectName %></td>
+                    <td><%= data.clientName %></td>
+                    <td><%= data.jobDescription %></td>
+                    <td><%= data.technologyStack %></td>
+                    <td><%= data.createdBy %></td>
+                    <td><%= data.status %></td>
+                    <td><a id="updateBtn" name="update" class="btn btn-primary" href="/job-opening/update/<%= data._id %>"> Update </a>
+                    </td>
+                </tr>
+                <% })%>
+
+            </tbody>
+        </table>
+
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>

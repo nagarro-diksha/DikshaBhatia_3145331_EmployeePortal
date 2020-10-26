@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <%- include('../partials/head'); %>
+</head>
+<style>
+    .card {
+        margin: 30px;
+    }
+
+    #new-job-opening-btn {
+        margin-top: 20px;
+    }
+
+    .form-group input {
+        width: 50%;
+    }
+
+    h2 {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+</style>
+
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <div>
+            <h2>Create a new job opening</h2>
+            <form method="post" action="/job-opening/update">
+                <div class="form-group row">
+                    <label for="projectName" class="col-sm-2 col-form-label">Project Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="projectName" name="projectName"
+                            placeholder="Project Name" value='<%= data.projectName %>'>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="clientName" class="col-sm-2 col-form-label">Client Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="clientNameInput" name="clientName"
+                            placeholder="Client Name" value='<%= data.clientName %>'>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="role" class="col-sm-2 col-form-label">Role</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="roleName" name="roleName" placeholder="Role"
+                            value='<%= data.roleName %>'>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="jobDescription" class="col-sm-2 col-form-label">Job Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="jobDescriptionInput" name="jobDescription"
+                            placeholder="Job Description" value='<%= data.jobDescription %>'>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="jobDescription" class="col-sm-2 col-form-label">Technology Stack</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="technologyStackInput" name="technologyStack"
+                            placeholder="Technology Stack" value='<%= data.technologyStack %>'>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="jobDescription" class="col-sm-2 col-form-label">Created By</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="createdByInput" name="createdBy"
+                            placeholder="Created By" value='<%= data.createdBy %>'>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="jobDescription" class="col-sm-2 col-form-label">Job Position Status (Open) </label>
+                    <div class="col-sm-1">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="status" name="status"
+                                value='<%= data.status %>'>
+                        </div>
+
+                    </div>
+                </div>
+                <input type="text" id="id" name="id" value='<%= data._id %>' hidden>
+                <div class="form-actions">
+                    <button class="btn btn-primary" type="submit">Update</button>
+                </div>
+            </form>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+
+</html>
